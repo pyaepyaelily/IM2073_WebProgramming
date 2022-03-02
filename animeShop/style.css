@@ -1,0 +1,22 @@
+.nav-link{
+  color:#252626 !important;
+}
+a:link {
+  color:#252626 !important;
+}
+a:hover {
+  color:#252626 !important;
+  text-decoration: none;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
+}
+
+#productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
