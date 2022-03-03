@@ -85,6 +85,7 @@ public class MainServlet extends HttpServlet {
             List<Object> dataNames = new ArrayList<Object>();
             List<Object> dataDesc = new ArrayList<Object>();
             List<Object> dataPrice = new ArrayList<Object>();
+            List<Object> dataImg = new ArrayList<Object>();
             Dictionary geek = new Hashtable();
             while (rset.next()) {
                 SQLData item = new SQLData(rset.getString("name"),
@@ -94,6 +95,7 @@ public class MainServlet extends HttpServlet {
                 dataNames.add(rset.getString("name"));
                 dataDesc.add(rset.getString("prod_desc"));
                 dataPrice.add(rset.getDouble("price"));
+                dataImg.add(rset.getString("img"));
             }
 
             int idNum = 0;
@@ -109,7 +111,8 @@ public class MainServlet extends HttpServlet {
                 out.println("<td style='width: 16rem; padding: 23px;'>");
                     out.println("<div class='card' style='width: 18rem;'");
                         out.println("<div>");
-                            out.println("<img src=\"https://i.quotev.com/joo3fqgm6izq.jpg\" class='card-img-top' alt='Responsive image'>");
+                            // out.println("<img src=\"https://i.quotev.com/joo3fqgm6izq.jpg\" class='card-img-top' alt='Responsive image'>");
+                            out.println("<img class='card-img-top' src='" + request.getContextPath() + "/assets/img/" + dataImg.get(i) + "' style='width: 100%; height:230px;' alt='image'>");
                         out.println("</div>");
  
                             out.println("<div class='card-body'>");
@@ -118,6 +121,7 @@ public class MainServlet extends HttpServlet {
                                 out.println("</div>");
                                 out.println("<div class='card-text'>");
                                     out.println("<p class='text-center'> $"+ dataPrice.get(i) + "</p>");
+                                    out.println("<p class='text-center'> $"+ dataImg.get(i) + "</p>");
                                 out.println("</div>");
 
                                 out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='id' value=" + "'" + idNum + "'"
