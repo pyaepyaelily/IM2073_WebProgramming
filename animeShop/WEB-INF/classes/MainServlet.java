@@ -112,7 +112,7 @@ public class MainServlet extends HttpServlet {
                     out.println("<div class='card' style='width: 18rem;'");
                         out.println("<div>");
                             // out.println("<img src=\"https://i.quotev.com/joo3fqgm6izq.jpg\" class='card-img-top' alt='Responsive image'>");
-                            out.println("<img class='card-img-top' src='" + request.getContextPath() + "/assets/img/" + dataImg.get(i) + "' style='width: 100%; height:230px;' alt='image'>");
+                            out.println("<img class='card-img-top' src='" + request.getContextPath() + "/assets/img/" + dataImg.get(i) + "' style='width: 100%; height:280px;' alt='image'>");
                         out.println("</div>");
  
                             out.println("<div class='card-body'>");
