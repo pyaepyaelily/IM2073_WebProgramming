@@ -121,7 +121,7 @@ public class MainServlet extends HttpServlet {
                                 out.println("</div>");
                                 out.println("<div class='card-text'>");
                                     out.println("<p class='text-center'> $"+ dataPrice.get(i) + "</p>");
-                                    out.println("<p class='text-center'> $"+ dataImg.get(i) + "</p>");
+                                   // out.println("<p class='text-center'> $"+ dataImg.get(i) + "</p>");
                                 out.println("</div>");
 
                                 out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='id' value=" + "'" + idNum + "'"
