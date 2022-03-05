@@ -58,6 +58,8 @@ public class MainServlet extends HttpServlet {
                 out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/contactus\">Contact Us</a>");
             out.println("</li>");
         out.println("</ul>");
+
+
         // out.println("<div id='bannerimage'>");
         // out.println("<h1 style='text-align: center'>Welcome to Anime Shop</h1>");
         // out.println("</div>");
