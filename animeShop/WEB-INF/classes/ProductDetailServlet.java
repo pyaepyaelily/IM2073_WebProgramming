@@ -85,8 +85,9 @@ public class ProductDetailServlet extends HttpServlet {
                 out.println("<h4> $" + rset.getDouble("price") + "</h4>");
                 out.println("<p>" + rset.getString("prod_desc") + "</p>");
                 out.println("<br>");
-                out.println("<form method='get' action='http://localhost:9999/animeShop/orderquery'> ");
-                out.println("<button type='submit' class='btn btn-dark btn-block' name='id' value=" + "'" + 1 + "'"
+                // out.println("<form method='get' action='http://localhost:9999/animeShop/orderquery'> ");
+                out.println("<form method='post'> ");
+                out.println("<button type='submit' class='btn btn-dark btn-block' name='productID' value=" + "'" + 1 + "'"
                         + "> <i class='bi bi-bag'></i> Add to Cart </button>");
                         out.println("<form />");
                 out.println("</div>");
@@ -94,6 +95,20 @@ public class ProductDetailServlet extends HttpServlet {
                 out.println("</div>");
                 out.println("</div>");
             }
+
+            if ( request.getParameter("productID") != null ){
+                out.println("got");
+                String id=request.getParameter("id");
+                sqlStr = "INSERT INTO cart (productID, customerID) VALUES (" + id + ", 1)";
+                out.println("<p>" + sqlStr + "</p>"); // for debugging
+                count = stmt.executeUpdate(sqlStr);
+                out.println(id);
+            }
+
+ 
+    
+
+
 
         } catch (Exception ex) {
             out.println("<p>Error: " + ex.getMessage() + "</p>");
