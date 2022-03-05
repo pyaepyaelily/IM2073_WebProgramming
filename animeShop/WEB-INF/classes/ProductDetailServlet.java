@@ -70,12 +70,13 @@ public class ProductDetailServlet extends HttpServlet {
                 out.println(" <div class='container-fluid'>");
                 out.println(" <div class='row'>");
                 out.println("<div class='col-4'>");
-                out.println(
-                        "<img id='productImg' src=\"https://mikatan.goodsmile.info/en/wp-content/uploads/-000//1/o0515068313838584221.jpg\" alt='Responsive image'>");
+                out.println("<img id='productImg' src='" + request.getContextPath() + "/assets/img/" + rset.getString("img") + "' alt='Responsive image'>");
+                        
+                        
                 out.println("</div>");
                 out.println("<div class='col-4'>");
-                out.println(
-                    "<img id='productImg' src=\"https://mikatan.goodsmile.info/en/wp-content/uploads/-000//1/o0515068313838584221.jpg\" alt='Responsive image'>");
+                out.println("<img id='productImg' src='" + request.getContextPath() + "/assets/img/" + rset.getString("img2") + "' alt='Responsive image'>");
+
                 out.println("</div>");
                 out.println("<div class='col-3'>");
                 out.println("<div class='text-center'>");
