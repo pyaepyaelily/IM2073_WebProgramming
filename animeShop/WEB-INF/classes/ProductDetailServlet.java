@@ -31,11 +31,24 @@ public class ProductDetailServlet extends HttpServlet {
         out.write("      href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css\"\r\n");
         out.write("    />\r\n");
 
-        out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +  "/style.css' />");
+        out.write("    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\r\n");
+        out.write(
+                "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\r\n");
+
+        out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/style.css' />");
+
+        out.write(
+                "    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\" ></script>\r\n");
+        out.write(
+                "    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\" ></script>\r\n");
+
+        out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/alertStyle.css' />");
+        // out.write("<script src='" + request.getContextPath() + "/alertJS.js' />");
 
         out.println("<body>");
         out.println("<div>");
-        out.println("<a href=\"http://localhost:9999/animeShop/start\"> <img class='center' src='" + request.getContextPath()
+        out.println("<a href=\"http://localhost:9999/animeShop/start\"> <img class='center' src='"
+                + request.getContextPath()
                 + "/bg.png' width = '150' height = '150' alt='image'>");
         out.println("</div>");
 
@@ -70,12 +83,13 @@ public class ProductDetailServlet extends HttpServlet {
                 out.println(" <div class='container-fluid'>");
                 out.println(" <div class='row'>");
                 out.println("<div class='col-4'>");
-                out.println("<img id='productImg' src='" + request.getContextPath() + "/assets/img/" + rset.getString("img") + "' alt='Responsive image'>");
-                        
-                        
+                out.println("<img id='productImg' src='" + request.getContextPath() + "/assets/img/"
+                        + rset.getString("img") + "' alt='Responsive image'>");
+
                 out.println("</div>");
                 out.println("<div class='col-4'>");
-                out.println("<img id='productImg' src='" + request.getContextPath() + "/assets/img/" + rset.getString("img2") + "' alt='Responsive image'>");
+                out.println("<img id='productImg' src='" + request.getContextPath() + "/assets/img/"
+                        + rset.getString("img2") + "' alt='Responsive image'>");
 
                 out.println("</div>");
                 out.println("<div class='col-3'>");
@@ -85,30 +99,107 @@ public class ProductDetailServlet extends HttpServlet {
                 out.println("<h4> $" + rset.getDouble("price") + "</h4>");
                 out.println("<p>" + rset.getString("prod_desc") + "</p>");
                 out.println("<br>");
-                // out.println("<form method='get' action='http://localhost:9999/animeShop/orderquery'> ");
+                // out.println("<form method='get'
+                // action='http://localhost:9999/animeShop/orderquery'> ");
                 out.println("<form method='post'> ");
-                out.println("<button type='submit' class='btn btn-dark btn-block' name='productID' value=" + "'" + 1 + "'"
-                        + "> <i class='bi bi-bag'></i> Add to Cart </button>");
-                        out.println("<form />");
+                out.println(
+                        "<button type='submit' class='btn btn-dark btn-block' name='productID' value=" + "'" + 1 + "'"
+                                + "> <i class='bi bi-bag'></i> Add to Cart </button>");
+                // out.println(
+                // "<button type='button' class='btn btn-info btn-lg' data-toggle='modal'
+                // data-target='#myModal'>Open Modal</button>");
+
+                out.println("<form />");
                 out.println("</div>");
                 out.println("</div>");
                 out.println("</div>");
                 out.println("</div>");
+
+                out.println("<div class='modal fade' id='myModal' role='dialog'>");
+                out.println("<div class='modal-dialog'>");
+                out.println("<div class='modal-content'>");
+                out.println("<div class='modal-header'>");
+                out.println("<button type='button' class='close' data-dismiss='modal'>&times;</button>");
+                out.println("<h4 class='modal-title'>Modal Header</h4>");
+                out.println("</div>");
+
+                out.println("<div class='modal-body'>");
+                out.println("<p>Some text in the modal.</p>");
+                out.println("</div>");
+                out.println("</div>");
+                out.println("</div>");
+                out.println("</div>");
+
             }
 
-            if ( request.getParameter("productID") != null ){
-                out.println("got");
-                String id=request.getParameter("id");
+            if (request.getParameter("productID") != null) {
+                String id = request.getParameter("id");
                 sqlStr = "INSERT INTO cart (productID, customerID) VALUES (" + id + ", 1)";
                 out.println("<p>" + sqlStr + "</p>"); // for debugging
                 count = stmt.executeUpdate(sqlStr);
-                out.println(id);
+
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Added to cart!');");
+                out.println("</script>");
+
+                // out.println("<div class='container'>");
+                // out.println(" <div class='row'>");
+                // out.println("<div class='col'>");
+                // out.println(" 1 of 3");
+                // out.println("</div>");
+                // out.println("<div class='col-6'>");
+                // out.println("<div class='alert alert-success alert-dismissible fade show'
+                // role='alert'>");
+                // out.println("<h4 class='alert-heading'>Well done!</h4>");
+                // out.println("<a href='#'' class='close' data-dismiss='alert'
+                // aria-label='close'>&times;</a>");
+                // out.println("<p>Aww yeah, you successfully read this important alert
+                // message</p>");
+                // out.println("</div>");
+                // out.println("</div>");
+                // out.println("<div class='col'>");
+                // out.println(" 3 of 3");
+                // out.println("</div>");
+                // out.println("</div>");
+                // out.println("</div>");
+
+                // out.println(
+                // "<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog'
+                // aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>");
+                // out.println("<div class='modal-dialog modal-dialog-centered'
+                // role='document'>");
+                // out.println("<div class='modal-content'>");
+                // out.println("<div class='modal-header'>");
+                // out.println("<h5 class='modal-title' id='exampleModalLongTitle'>Modal
+                // title</h5>");
+                // out.println("<button type='button' class='close' data-dismiss='modal'
+                // aria-label='Close'>");
+                // out.println("<span aria-hidden='true'>&times;</span>");
+                // out.println("</button>");
+                // out.println("</div>");
+                // out.println("<div class='modal-body'>");
+                // out.println("</div>");
+                // out.println(" <div class='modal-footer'>");
+                // out.println("<button type='button' class='btn btn-secondary'
+                // data-dismiss='modal'>Close</button>");
+                // out.println("</div>");
+                // out.println("</div>");
+                // out.println("</div>");
+                // out.println("</div>");
+
+                // out.println("<div class='alert alert-success alert-dismissible fade show'
+                // role='alert'>");
+                // out.println("<h4 class='alert-heading'>Well done!</h4>");
+                // out.println("<a href='#'' class='close' data-dismiss='alert'
+                // aria-label='close'>&times;</a>");
+                // out.println("<p>Aww yeah, you successfully read this important alert
+                // message</p>");
+                // out.println("<hr>");
+                // out.println(
+                // "<p class='mb-0'>Whenever you need to, be sure to use margin utilities to
+                // keep things nice and tidy.</p>");
+                // out.println("</div>");
             }
-
- 
-    
-
-
 
         } catch (Exception ex) {
             out.println("<p>Error: " + ex.getMessage() + "</p>");
