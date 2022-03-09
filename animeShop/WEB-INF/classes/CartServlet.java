@@ -193,7 +193,8 @@ public class CartServlet extends HttpServlet {
                             out.println("</div>");
                             out.println("<br>");
                             out.println("<form method='get' >");
-                                out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='orderID' > Order </button>");
+                                out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='orderID'><a href=\"http://localhost:9999/animeShop/thanks\" </a>  Order </button>");
+                                //out.println("<button type='submit' class='btn btn-light btn-outline-primary' ><a href=\"http://localhost:9999/animeShop/contactus\" </a> Feedback </button>");
                                 out.println("<form />");
 
                                 if (request.getParameter("orderID") != null) {
