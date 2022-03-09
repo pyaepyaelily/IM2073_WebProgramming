@@ -20,6 +20,15 @@ body {
   float: right;
 }
 
+#cartBtn {
+  border: none;
+  color: #252626 !important;
+  padding: 12px 16px;
+  font-size: 23px;
+  cursor: pointer;
+  float: right;
+}
+
 .nav-link {
   color: #252626 !important;
 }
@@ -35,9 +44,8 @@ a:hover {
 
 .center {
   display: block;
-  margin-left: auto;
+  margin-left: 600px;
   margin-right: auto;
-  /* width: 50%; */
 }
 <<<<<<< Updated upstream
 

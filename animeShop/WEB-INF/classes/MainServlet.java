@@ -39,30 +39,44 @@ public class MainServlet extends HttpServlet {
         out.write("      href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css\"\r\n");
         out.write("    />\r\n");
 
-        out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +  "/style.css' />");
+        out.write("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\r\n");
+        out.write("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\r\n");
+
+        out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/style.css' />");
+        out.write("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\" ></script>\r\n");
+        // out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\" ></script>\r\n");
+        
+        out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\r\n");
+        out.write("<script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\r\n");
+        out.write("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\r\n");
+
+        out.write("    <link\r\n");
+        out.write("      rel=\"stylesheet\"\r\n");
+        out.write("      href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\"\r\n");
+        out.write("    />\r\n");
 
         out.println("<body>");
-        out.println("<div>");
-        out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath()
-                + "/bg.png' width = '150' height = '150' alt='image'>");
-        out.println("</div>");
+            out.println("<div>");
+                out.println("<button type='submit' class='btn' id='cartBtn'><a href=\"http://localhost:9999/animeShop/cart\" </a> <i class='bi bi-cart'></i> </button>");
+            out.println("</div>");
 
-        out.println("<ul class='nav justify-content-center'>");
-            out.println("<li class='nav-item'>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/home\" >Home</a>");
-            out.println("</li>");
-            out.println("<li class='nav-item'>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/start\">Products</a>");
-            out.println("</li>");
-            out.println("<li class='nav-item'>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/contactus\">Contact Us</a>");
-            out.println("</li>");
-        out.println("</ul>");
+            out.println("<div>");
+                out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath() + "/assets/logo.png' width = '130' height = '130' alt='image'>");
+            out.println("</div>");
 
-        
-        // out.println("<div id='bannerimage'>");
-        // out.println("<h1 style='text-align: center'>Welcome to Anime Shop</h1>");
-        // out.println("</div>");
+            out.println("<ul class='nav justify-content-center'>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/home\" >Home</a>");
+                out.println("</li>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/start\">Products</a>");
+                out.println("</li>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/contactus\">Contact Us</a>");
+                out.println("</li>");
+            out.println("</ul>");
+
+
         try (
 
                 // Step 1: Allocate a database 'Connection' object

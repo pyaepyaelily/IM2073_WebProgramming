@@ -60,21 +60,25 @@ public class CartServlet extends HttpServlet {
 
 
         out.println("<body>");
-        out.println("<div>");
-        out.println("<a href=\"http://localhost:9999/animeShop/start\"> <img class='center' src='"
-                + request.getContextPath()
-                + "/bg.png' width = '150' height = '150' alt='image'>");
-        out.println("</div>");
+            out.println("<div>");
+                out.println("<button type='submit' class='btn' id='cartBtn'><a href=\"http://localhost:9999/animeShop/cart\" </a> <i class='bi bi-cart'></i> </button>");
+            out.println("</div>");
 
-        out.println("<ul class='nav justify-content-center'>");
-        out.println("<li class='nav-item'>");
-        out.println("<a class='nav-link' href=\"http://localhost:9999/animeShop/start\" >Home</a>");
-        out.println("</li>");
-        out.println("<li class='nav-item'>");
-        out.println("<a class='nav-link' href='#''>Link</a>");
-        out.println("</li>");
-        out.println("</ul>");
+            out.println("<div>");
+                out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath() + "/assets/logo.png' width = '130' height = '130' alt='image'>");
+            out.println("</div>");
 
+            out.println("<ul class='nav justify-content-center'>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/home\" >Home</a>");
+                out.println("</li>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/start\">Products</a>");
+                out.println("</li>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/contactus\">Contact Us</a>");
+                out.println("</li>");
+            out.println("</ul>");
 
         try (
 
@@ -175,9 +179,17 @@ public class CartServlet extends HttpServlet {
                                 out.println("</div>");
                             out.println("</div>");
                             out.println("<br>");
-                            // out.println("<div class='row'>");
-                                out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='id' > Order </button>");
-                            // out.println("</div>");
+                            out.println("<form method='get' >");
+                                out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='orderID' > Order </button>");
+                                out.println("<form />");
+
+                                if (request.getParameter("orderID") != null) {
+                                    out.println("<script type=\"text/javascript\">");
+                                    out.println("alert('Thank you for your purchase!');");
+                                    out.println("</script>");
+                                }
+
+
                             out.println("<br>");
                             out.println("<br>");
                             out.println("<span> We accept </span>");
