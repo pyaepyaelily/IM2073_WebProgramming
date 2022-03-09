@@ -50,6 +50,11 @@ public class CartServlet extends HttpServlet {
         out.write("<script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\"></script>\r\n");
         out.write("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js\"></script>\r\n");
 
+        out.write("    <link\r\n");
+        out.write("      rel=\"stylesheet\"\r\n");
+        out.write("      href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\"\r\n");
+        out.write("    />\r\n");
+
 
 
 
@@ -93,33 +98,11 @@ public class CartServlet extends HttpServlet {
             if (results) {
                 rsCount++;
             }
-           
+            out.println("<br>");
             out.println("<h1 class='text-center'>Cart</h1>");
-            // out.println("<br>");
-            // out.println("<form method='get' action='eshoporder'>");
-            // out.println("<table class='table table-bordered'>");
-            // out.println("<tr>");
-            // out.println("<th></th>");
-            // out.println("<th>Name</th>");
-            // out.println("<th>PRICE</th>");
-            // out.println("<th></th>");
-            // out.println("</tr>");
-            // For each row in ResultSet, print one checkbox inside the <form>
-            
-
-            // while (rset.next()) {
-            //     out.println("<tr>");
-            //     out.println("<td><p><input type='checkbox' name='id' value="
-            //             + "'" + rset.getString("id") + "</td>" + "' />"
-            //             + "<td>" + rset.getString("name") + "</td>"
-            //             + "<td>" + "$" + rset.getString("price") + "</p></td>");
-            //             out.println("</tr>");
-            // }
-            // out.println("<table>");
-            // out.println("<p><input type='submit' value='ORDER' />");
-            // out.println("</form>");
-Double totalOrderValue = 0.0;
-Double orderValue = 0.0;
+            out.println("<br>");
+            Double totalOrderValue = 0.0;
+            Double orderValue = 0.0;
             out.println("<div class='container' style='border:1px solid #cecece;''>");
                 out.println("<div class='row'>");
                     out.println("<div class='col-8 border'>");
@@ -129,21 +112,37 @@ Double orderValue = 0.0;
                              out.println("<img id='cartImg' width='100%' height='180px' src='" + request.getContextPath() + "/assets/img/" + rset.getString("img") + "' alt='image'>");
                             out.println("</div>");
                             out.println("<div class='col-6'>");
-                                out.println("<p>" + rset.getString("name") + "</p>");
+                                out.println("<h6>" + rset.getString("name") + "</h6>");
                                 out.println("<p> S$ " + rset.getString("price") + "</p>");
                             out.println("</div>");
                             out.println("<div class='col'>");
-                                out.println(" 3 of 3");
-                            out.println("</div>");
+                            out.println("<form method='get' >");
+                                out.println("<button type='submit' class='btn' id='trashBtn' name='cartID' value=" + "'" + rset.getInt("id") + "'"
+                                + "> <i class='fa fa-trash'></i>          </button>");
+                                out.println("<form />");
+                                out.println("</div>");
                         out.println("</div>");
                         out.println("<br>");
                         orderValue =  Double.parseDouble(rset.getString("price"));
                         totalOrderValue = totalOrderValue + orderValue;
                     }
+                    int count = 0;
+                    if (request.getParameter("cartID") != null) {
+                        String id = request.getParameter("cartID");
+
+                        sqlStr = "DELETE FROM cart WHERE (ID = " + id + ")";
+                        count = stmt.executeUpdate(sqlStr);
+                        out.println("<script type=\"text/javascript\">");
+                        out.println("location.replace('http://localhost:9999/animeShop/cart')");
+                        out.println("</script>");
+                    }
+
+
+                         
                     out.println("</div>");
                     out.println("<div class='col'>");
-                        out.println("<div style='background-color: rgba(255,255,255,255);'>");
-                        out.println("<br>");
+                        out.println("<div style='background-color: white;'>");
+                            out.println("<br>");
                             out.println("<div class='row'>");
                                 out.println("<div class='col'>");
                                     out.println("<p class='text-muted'> Order Value </p>");
@@ -166,15 +165,40 @@ Double orderValue = 0.0;
                             out.println("</div>");
                             out.println("<hr>");
                             out.println("<div class='row'>");
-                            out.println("<div class='col'>");
-                                out.println("<strong> Total </strong>");
-                            out.println("</div>");
-                            out.println("<div class='col'>");
-                                out.println("<div class='c'>");
-                                out.println("<strong> S$ " + totalOrderValue + "</strong>");
+                                out.println("<div class='col'>");
+                                    out.println("<strong> Total </strong>");
+                                out.println("</div>");
+                                out.println("<div class='col'>");
+                                    out.println("<div class='c'>");
+                                        out.println("<strong> S$ " + totalOrderValue + "</strong>");
+                                    out.println("</div>");
                                 out.println("</div>");
                             out.println("</div>");
-                        out.println("</div>");
+                            out.println("<br>");
+                            // out.println("<div class='row'>");
+                                out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='id' > Order </button>");
+                            // out.println("</div>");
+                            out.println("<br>");
+                            out.println("<br>");
+                            out.println("<span> We accept </span>");
+                            
+                            out.println("<div class='container'>");
+                                out.println("<div class='row'>");
+                                    out.println("<div class='col'>");
+                                    out.println("<img src='" + request.getContextPath() + "/assets/img/mastercard.jpg" + "' style='width: 45%; height:30px;' alt='image'>");
+                                    out.println("</div>"); 
+                                    out.println("<div class='col'>");
+                                    out.println("<img src='" + request.getContextPath() + "/assets/img/visa.png" + "' style='width: 45%; height:30px;' alt='image'>");
+                                    out.println("</div>"); 
+                                    out.println("<div class='col'>");
+                                    out.println("<img src='" + request.getContextPath() + "/assets/img/americanExpress.png" + "' style='width: 45%; height:30px;' alt='image'>");
+                                    out.println("</div>"); 
+                                    out.println("<div class='col'>");
+                                    out.println("</div>"); 
+                                out.println("</div>");
+                            out.println("</div>");
+                            out.println("<br>");
+                            out.println("<span class='text-muted'> 30 days to return. </span>");
                         out.println("</div>");
                     out.println("</div>");
                 out.println("</div>");               
