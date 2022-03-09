@@ -1,9 +1,15 @@
 import java.io.*;
 import java.sql.*;
 import jakarta.servlet.*; // Tomcat 10
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.http.*; // Tomcat 10
+import jakarta.servlet.annotation.*; // Tomcat 10
+import java.util.ArrayList;
+import java.util.List;
+import java.util.AbstractList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.*;
+
 
 @WebServlet("/contactus") // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
 public class ContactServlet extends HttpServlet {
@@ -35,17 +41,20 @@ public class ContactServlet extends HttpServlet {
 
         out.println("<body>");
         out.println("<div>");
-        out.println("<a href=\"http://localhost:9999/animeShop/start\"> <img class='center' src='" + request.getContextPath()
+        out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath()
                 + "/bg.png' width = '150' height = '150' alt='image'>");
         out.println("</div>");
 
         out.println("<ul class='nav justify-content-center'>");
-        out.println("<li class='nav-item'>");
-        out.println("<a class='nav-link' href=\"http://localhost:9999/animeShop/start\" >Home</a>");
-        out.println("</li>");
-        out.println("<li class='nav-item'>");
-        out.println("<a class='nav-link' href='#''>Link</a>");
-        out.println("</li>");
+            out.println("<li class='nav-item'>");
+                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/home\" >Home</a>");
+            out.println("</li>");
+            out.println("<li class='nav-item'>");
+                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/start\">Products</a>");
+            out.println("</li>");
+            out.println("<li class='nav-item'>");
+                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/contactus\">Contact Us</a>");
+            out.println("</li>");
         out.println("</ul>");
 
         try (
@@ -63,20 +72,20 @@ public class ContactServlet extends HttpServlet {
                 out.println("<div class='container'>");
                 out.println("<form action='action_page.php'>");
                 out.println("<label for='fname'>First Name</label>");
-                out.println("<input type='text' id="fname" name="firstname" placeholder="Your name..">");
+                out.println("<input type='text' id='fname' name='firstname' placeholder='Your name..'>");
                 out.println("<label for='lname'>Last Name</label>");
-                out.println("<input type='text' id="lname" name="lastname" placeholder="Your last name..">");
+                out.println("<input type='text' id='lname' name='lastname' placeholder='Your last name..'>");
                 out.println("<label for='region'>Region</label>");
-                out.println("<select id='region' name="region">");
+                out.println("<select id='region' name='region'>");
                 out.println("<option value='West'>West</option>");
                 out.println("<option value='East'>East</option>");
                 out.println("<option value='North'>North</option>");
                 out.println("<option value='South'>South</option>");
                 out.println("</select>");
                 out.println("<label for='subject'>Subject</label>");
-                out.println("<textarea id='subject' name="subject" placeholder="Write something.." style="height:200px"></textarea>");
-                out.println("<input type='submit' value="Submit">");
-                out.println("<form method='get' action='http://localhost:9999/animeShop/thankyou'>")
+                out.println("<textarea id='subject' name='subject' placeholder='Write something..' style='height:200px'></textarea>");
+                out.println("<input type='submit' value='Submit'>");
+                out.println("<form method='get' action='http://localhost:9999/animeShop/thankyou'>");
                 out.println("</form>");
                 out.println("</div>");
 
