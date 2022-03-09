@@ -39,36 +39,31 @@ public class HouseServlet extends HttpServlet {
         out.write("      href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css\"\r\n");
         out.write("    />\r\n");
 
+        out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +  "/contact.css' />");
         out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +  "/style.css' />");
+        
         out.write("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
-        //<!--Inter UI font-->
-        //out.write("<link href='https://rsms.me/inter/inter-ui.css' rel='stylesheet'>");
-
-        //<!--vendors styles-->
-        //out.write("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>");
-        //out.write("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css'>");
-        //out.write("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css'>");
-
-        //<!-- Bootstrap CSS / Color Scheme -->
-        //out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +  "/default.css' id='theme-color' />");
 
         out.println("<body>");
-        out.println("<div>");
-        out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath()
-                + "/bg.png' width = '150' height = '150' alt='image'>");
-        out.println("</div>");
+            out.println("<div>");
+                out.println("<button type='submit' class='btn' id='cartBtn'><a href=\"http://localhost:9999/animeShop/cart\" </a> <i class='bi bi-cart'></i> </button>");
+            out.println("</div>");
 
-        out.println("<ul class='nav justify-content-center'>");
-            out.println("<li class='nav-item'>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/home\" >Home</a>");
-            out.println("</li>");
-            out.println("<li class='nav-item'>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/start\">Products</a>");
-            out.println("</li>");
-            out.println("<li class='nav-item'>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/contactus\">Contact Us</a>");
-            out.println("</li>");
-        out.println("</ul>");
+            out.println("<div>");
+                out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath() + "/assets/logo.png' width = '130' height = '130' alt='image'>");
+            out.println("</div>");
+
+            out.println("<ul class='nav justify-content-center'>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/home\" >Home</a>");
+                out.println("</li>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/start\">Products</a>");
+                out.println("</li>");
+                out.println("<li class='nav-item'>");
+                    out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/contactus\">Contact Us</a>");
+                out.println("</li>");
+            out.println("</ul>");
 
 
        try (
