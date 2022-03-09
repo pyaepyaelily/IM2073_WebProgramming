@@ -107,6 +107,7 @@ public class CartServlet extends HttpServlet {
             out.println("<br>");
             Double totalOrderValue = 0.0;
             Double orderValue = 0.0;
+            Double totalOrderValueWShip = 0.0;
             out.println("<div class='container' style='border:1px solid #cecece;''>");
                 out.println("<div class='row'>");
                     out.println("<div class='col-8 border'>");
@@ -163,7 +164,13 @@ public class CartServlet extends HttpServlet {
                                 out.println("</div>");
                                 out.println("<div class='col'>");
                                     out.println("<div class='c'>");
+                                    if (totalOrderValue >= 100){
                                         out.println("<p class='text-muted'> FREE </p>");
+                                    }
+                                    else{
+                                        out.println("<p class='text-muted'> S$ 5 </p>");
+                                    }
+                                        
                                     out.println("</div>");
                                 out.println("</div>");
                             out.println("</div>");
@@ -174,7 +181,13 @@ public class CartServlet extends HttpServlet {
                                 out.println("</div>");
                                 out.println("<div class='col'>");
                                     out.println("<div class='c'>");
+                                    if (totalOrderValue >= 100){
                                         out.println("<strong> S$ " + totalOrderValue + "</strong>");
+                                    }
+                                    else{
+                                        totalOrderValueWShip = totalOrderValue + 5;
+                                        out.println("<strong> S$ " + totalOrderValueWShip + "</strong>");
+                                    }
                                     out.println("</div>");
                                 out.println("</div>");
                             out.println("</div>");
@@ -190,6 +203,15 @@ public class CartServlet extends HttpServlet {
                                 }
 
 
+                            out.println("<br>");
+                            out.println("<br>");
+                            if (totalOrderValue >= 100){
+                                out.println("<strong> You have hit the S$ 100 minimum amount to be eligible for free shipping! </strong>");
+                            }
+                            else{
+                                totalOrderValueWShip = totalOrderValue + 5;
+                                out.println("<strong> You have not hit the S$ 100 minimum amount to be eligible for free shipping.  </strong>");
+                            }
                             out.println("<br>");
                             out.println("<br>");
                             out.println("<span> We accept </span>");
