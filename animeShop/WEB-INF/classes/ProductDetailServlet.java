@@ -117,22 +117,9 @@ public class ProductDetailServlet extends HttpServlet {
                 out.println("</div>");
                 out.println("</div>");
 
-                out.println("<div class='modal fade' id='myModal' role='dialog'>");
-                out.println("<div class='modal-dialog'>");
-                out.println("<div class='modal-content'>");
-                out.println("<div class='modal-header'>");
-                out.println("<button type='button' class='close' data-dismiss='modal'>&times;</button>");
-                out.println("<h4 class='modal-title'>Modal Header</h4>");
-                out.println("</div>");
-
-                out.println("<div class='modal-body'>");
-                out.println("<p>Some text in the modal.</p>");
-                out.println("</div>");
-                out.println("</div>");
-                out.println("</div>");
-                out.println("</div>");
-
             }
+
+
 
             if (request.getParameter("productID") != null) {
                 String id = request.getParameter("id");
