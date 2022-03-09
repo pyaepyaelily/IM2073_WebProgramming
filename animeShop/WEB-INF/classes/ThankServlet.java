@@ -80,7 +80,7 @@ public class ThankServlet extends HttpServlet {
             //out.println("<img class='w3-image' class='w3-opacity' src='https://www.baltana.com/files/wallpapers-14/Fairy-Tail-High-Definition-Wallpaper-37364.jpg' alt='fairy' width='1500' height='800'>");
             out.println("<div class='w3-display-middle w3-margin-top w3-center'>");
             out.println("<h1 class='display-3 text-capitalize w3-text-white' style='font=300%'><strong>THANK YOU FOR YOUR PURCHASE!</strong></h1>");
-            out.println("<hr class='w3-border-grey' style='margin:auto;width:40%'>");
+            out.println("<hr class='w3-border-white' style='margin:auto;width:40%'>");
             out.println("<h4 class= 'w3-text-sand'>  Leave a feedback! </h4>");
             out.println("<br>");
             //out.println("<button type='submit' class='btn btn-light btn-outline-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple' id='cartBtn'><a href=\"http://localhost:9999/animeShop/contactus\" </a>Feedback</button>");
