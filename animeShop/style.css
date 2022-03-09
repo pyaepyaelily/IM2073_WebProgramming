@@ -1,8 +1,13 @@
+<<<<<<< Updated upstream
 body {
   background-color: rgb(250, 249, 248);
   color: rgb(34, 34, 34);
   font-size: 0.8125rem;
   font-weight: 400;
+=======
+.nav-link{
+  color:#252626 !important;
+>>>>>>> Stashed changes
 }
 
 #trashBtn {
@@ -34,6 +39,7 @@ a:hover {
   margin-right: auto;
   /* width: 50%; */
 }
+<<<<<<< Updated upstream
 
 hr.new4 {
   height: 1px;
@@ -45,6 +51,8 @@ div.c {
   text-align: right;
 }
 
+=======
+>>>>>>> Stashed changes
 
 #productImg {
   width: 100%;
@@ -53,6 +61,13 @@ div.c {
 }
 
 .card-img-top {
+<<<<<<< Updated upstream
   width: 100%;
   height: 280px;
 }
+=======
+  width: 100%; 
+  height:280px;
+}
+
+>>>>>>> Stashed changes

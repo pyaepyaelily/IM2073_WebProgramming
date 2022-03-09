@@ -71,28 +71,17 @@ public class ContactServlet extends HttpServlet {
                 Statement stmt = conn.createStatement();) {
             // Step 3: Execute a SQL SELECT query
 
-                out.println("<div class='container'>");
-                out.println("<form action='action_page.php'>");
-                out.println("<label for='fname'>First Name</label>");
-                out.println("<input type='text' id='fname' name='firstname' placeholder='Your name..'>");
-                out.println("<label for='lname'>Last Name</label>");
-                out.println("<input type='text' id='lname' name='lastname' placeholder='Your last name..'>");
-                out.println("<label for='region'>Region</label>");
-                out.println("<select id='region' name='region'>");
-                out.println("<option value='West'>West</option>");
-                out.println("<option value='East'>East</option>");
-                out.println("<option value='North'>North</option>");
-                out.println("<option value='South'>South</option>");
-                out.println("</select>");
-                out.println("<label for='subject'>Subject</label>");
-                out.println("<textarea id='subject' name='subject' placeholder='Write something..' style='height:200px'></textarea>");
-                out.println("<input type='submit' value='Submit'>");
-                out.println("<form method='get' action='http://localhost:9999/animeShop/thankyou'>");
-                out.println("</form>");
-                out.println("</div>");
 
 
-        } catch (Exception ex) {
+
+
+
+
+
+
+
+
+         } catch (Exception ex) {
             out.println("<p>Error: " + ex.getMessage() + "</p>");
             out.println("<p>Check Tomcat console for details.</p>");
             ex.printStackTrace();
@@ -109,4 +98,4 @@ public class ContactServlet extends HttpServlet {
             throws ServletException, IOException {
         doGet(request, response); // Re-direct POST request to doGet()
     }
-}
+}           
