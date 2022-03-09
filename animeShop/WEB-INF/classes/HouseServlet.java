@@ -95,8 +95,8 @@ public class HouseServlet extends HttpServlet {
 
                 //out.println("<a class='nav-link active' href=\"http://localhost:9999/animeShop/start\"</a>");
                 //out.println("<button type='button' class='btn btn-light btn-outline-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple'>Click Here!</button>");
-                out.println("<button type='submit' class='btn btn-light btn-outline-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple' id='cartBtn'><a href=\"http://localhost:9999/animeShop/start\" </a>Click Here!</button>");
-               
+                // out.println("<button type='submit' class='btn btn-light btn-outline-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple' id='startBtn'><a href=\"http://localhost:9999/animeShop/start\" </a>Click Here!</button>");
+                out.println("<button type='submit' class='btn btn-light btn-outline-primary' ><a href=\"http://localhost:9999/animeShop/start\" </a> Click Here </button>");
                 out.println("</div>");
                 out.println("</header>");
 
