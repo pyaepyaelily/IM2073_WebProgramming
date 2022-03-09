@@ -38,19 +38,18 @@ public class ThankServlet extends HttpServlet {
         out.write("    />\r\n");
 
         out.write("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +  "/style.css' />");
+        
         out.write("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
- 
 
         out.println("<body>");
             out.println("<div>");
                 out.println("<button type='submit' class='btn' id='cartBtn'><a href=\"http://localhost:9999/animeShop/cart\" </a> <i class='bi bi-cart'></i> </button>");
             out.println("</div>");
 
-        out.println("<body>");
-        out.println("<div>");
-        out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath()
-                + "/bg.png' width = '150' height = '150' alt='image'>");
-        out.println("</div>");
+            out.println("<div>");
+                out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath() + "/assets/logo.png' width = '130' height = '130' alt='image'>");
+            out.println("</div>");
+        
 
         out.println("<ul class='nav justify-content-center'>");
             out.println("<li class='nav-item'>");
