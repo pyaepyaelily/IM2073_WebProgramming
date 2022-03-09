@@ -54,11 +54,8 @@ public class HouseServlet extends HttpServlet {
 
         out.println("<body>");
         out.println("<div>");
-            out.println("<button type='submit' class='btn' id='cartBtn'><a href=\"http://localhost:9999/animeShop/cart\" </a> <i class='bi bi-cart'></i> </button>");
-        out.println("</div>");
-
-        out.println("<div>");
-            out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath() + "/assets/logo.png' width = '130' height = '130' alt='image'>");
+        out.println("<a href=\"http://localhost:9999/animeShop/home\"> <img class='center' src='" + request.getContextPath()
+                + "/bg.png' width = '150' height = '150' alt='image'>");
         out.println("</div>");
 
         out.println("<ul class='nav justify-content-center'>");
@@ -86,44 +83,25 @@ public class HouseServlet extends HttpServlet {
                 Statement stmt = conn.createStatement();) {
                 // Step 3: Execute a SQL SELECT query
 
-                int rsCount = 0;
-                String sqlStr = "select * from product";
-                boolean results = stmt.execute(sqlStr);
-
-                ResultSet rset = stmt.executeQuery(sqlStr); // Send the query to the server
-
                 // Step 4: Process the query result set
-                if (results) {
-                    rsCount++;
-                }               
-                List<Object> dataItems = new ArrayList<Object>();
-                List<Object> dataNames = new ArrayList<Object>();
-                List<Object> dataDesc = new ArrayList<Object>();
-                List<Object> dataPrice = new ArrayList<Object>();
-                List<Object> dataImg = new ArrayList<Object>();
-                Dictionary geek = new Hashtable();
-                while (rset.next()) {
-                    SQLData item = new SQLData(rset.getString("name"),
-                            rset.getString("prod_desc"),
-                            rset.getDouble("price"));
-                    dataItems.add(item);
-                    dataNames.add(rset.getString("name"));
-                    dataDesc.add(rset.getString("prod_desc"));
-                    dataPrice.add(rset.getDouble("price"));
-                    dataImg.add(rset.getString("img"));
-                }
+
 
                 out.println("<header class='w3-display-container w3-content w3-wide' style='max-width:1500px' id='home'>");
                 out.println("<img class='w3-image' class='w3-opacity' src='https://i.pinimg.com/originals/a1/f5/af/a1f5af8548c57b5c31eb8e5345d27ae8.png' alt='anime' width='1500' height='800'>");
                 out.println("<div class='w3-display-middle w3-margin-top w3-center'>");
                 out.println("<h1 class='display-3 text-capitalize w3-text-white' style='font=300%'><strong>WELCOME TO THE <br> ANIME SHOP! </br></strong></h1>");
+                out.println("<br>");
                 out.println("<h4 class= 'w3-text-aqua'>  Your Second Home To ALL Your Favourite Anime Collection! </h4>");
+                out.println("<br>");
                 out.println("<p class='lead py-3 w3-text-white'> What Are You Waiting For? <br> Start Ordering Now! </b> </p>");
 
                 //out.println("<button class='btn btn-light btn-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple >Order now!<em class='ml-2'></em>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/start\"</a>");
-                out.println("<button type='button' class='btn btn-light btn-outline-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple'>Click Here!</button>");
+                
 
+                //out.println("<a class='nav-link active' href=\"http://localhost:9999/animeShop/start\"</a>");
+                //out.println("<button type='button' class='btn btn-light btn-outline-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple'>Click Here!</button>");
+                out.println("<button type='submit' class='btn btn-light btn-outline-primary btn-lg d-inline-flex flex-row align-items-center w3-ripple' id='cartBtn'><a href=\"http://localhost:9999/animeShop/start\" </a>Click Here!</button>");
+               
                 out.println("</div>");
                 out.println("</header>");
 
@@ -133,62 +111,55 @@ public class HouseServlet extends HttpServlet {
 
                 //<!-- About Section -->
                 out.println("<div class='w3-container w3-padding-32' id='about'>");
-                out.println("<h3 class=' text-center w3-border-bottom w3-border-light-grey w3-padding-16'>Top 4 Bestselling Products!</h3>");
-                out.println("<p class='text-center'>Check out our bestselling products! Orders above $200 will be eligible for FREE delivery at your doorstep! What are you waiting for? Start purchasing today!</p>");
+                out.println("<h2 class=' text-center w3-border-bottom w3-border-light-grey w3-padding-16'><strong>TOP 4 BESTSELLING PRODUCTS</strong></h2>");
+                out.println("<p class='lead py-3 text-center'>Check out our bestselling products! Orders above <u>$100</u> will be eligible for <u><em>FREE</em></u> delivery at your doorstep! <br>What are you waiting for? Start purchasing today!</br></p>");
                 out.println("</div>");
 
                 out.println("<div class='w3-row-padding'>");  
 
                 out.println("<div class='w3-col l3 m6 w3-margin-bottom'>");
                 out.println("<br>");
-                out.println("<img src='" + request.getContextPath() + "/assets/img/genshin.jpg" + "' alt='capsule' style='width: 100%; height:280px;'>");
+                out.println("<img src='" + request.getContextPath() + "/assets/img/genshin1.jpg" + "' alt='capsule' style='width: 100%; height:280px;'>");
                 out.println("<h3 class='text-center'>Genshin Impact Capsule collection Figure vol.2</h3>");
                 out.println("<br>");             
                 out.println("<br>");
                 out.println("<p class='text-center w3-opacity'>$54.0</p>");
                 out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/productdetailquery?id=8\"</a>");                
-                out.println("<p><button class='w3-button w3-light-grey w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
+                out.println("<p><button class='w3-button w3-black w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
                 out.println("</div>");
 
                 out.println("<div class='w3-col l3 m6 w3-margin-bottom'>");
-                out.println("<img src='" + request.getContextPath() + "/assets/img/kimetsu.jpg" + "' alt='kimetsu' style='width: 100%; height:280px;'>");
+                out.println("<img src='" + request.getContextPath() + "/assets/img/kimetsu1.jpg" + "' alt='kimetsu' style='width: 100%; height:280px;'>");
                 out.println("<h3 class='text-center'>Demon Slayer: Kimetsu No Yaiba - Tengen Uzui Figuartszero PVC Statue</h3>");
                 out.println("<br>");
                 out.println("<p class='text-center w3-opacity'>$125.89</p>");
                 out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/productdetailquery?id=16\"</a>");                
-                out.println("<p><button class='w3-button w3-light-grey w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
+                out.println("<p><button class='w3-button w3-black w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
                 out.println("</div>");
 
                 out.println("<div class='w3-col l3 m6 w3-margin-bottom'>");
-                out.println("<img src='" + request.getContextPath() + "/assets/img/nanamiNendo.jpg" + "' alt='nanami' style='width: 100%; height:280px;'>");
+                out.println("<img src='" + request.getContextPath() + "/assets/img/nanamiNendo1.jpg" + "' alt='nanami' style='width: 100%; height:280px;'>");
+                out.println("<br>");                
                 out.println("<h3 class='text-center'>Nanami Nendo</h3>");
                 out.println("<br>");
                 out.println("<br>");
                 out.println("<br>");                
                 out.println("<p class='text-center w3-opacity'>$58.0</p>");
                 out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/productdetailquery?id=4\"</a>");                
-                out.println("<p><button class='w3-button w3-light-grey w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
+                out.println("<p><button class='w3-button w3-black w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
                 out.println("</div>");
 
                 out.println("<div class='w3-col l3 m6 w3-margin-bottom'>");
-                out.println("<img src='" + request.getContextPath() + "/assets/img/haikyuuBigFuwacororin.jpg" + "' alt='haikyuu' style='width: 100%; height:280px;'>");
+                out.println("<img src='" + request.getContextPath() + "/assets/img/haikyuuBigFuwacororin2.jpg" + "' alt='haikyuu' style='width: 100%; height:280px;'>");
                 out.println("<h3 class='text-center'>Haikyuu Big Fuwacororin</h3>");
                 out.println("<br>");
                 out.println("<br>");
                 out.println("<p class='text-center w3-opacity'>$50.0</p>");
-                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/productdetailquery?id=6\"</a>");                
-                out.println("<p><button class='w3-button w3-light-grey w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
+                out.println("<a class='nav-link active' aria-current='page' href=\"http://localhost:9999/animeShop/productdetailquery?id=6\"</a>"); 
+                out.println("<p><button class='w3-button w3-black w3-block'> <i class='bi bi-arrow-right-square'></i>More Details</button></p>");
                 out.println("</div>");
                 out.println("</div>");
-/*
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-      <h3>Mike Ross</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-*/
+
 
 
         } catch (Exception ex) {
