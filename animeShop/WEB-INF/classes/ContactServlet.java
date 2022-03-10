@@ -93,30 +93,56 @@ public class ContactServlet extends HttpServlet {
                 Statement stmt = conn.createStatement();) {
             // Step 3: Execute a SQL SELECT query
 
+            // String sqlStr = "SELECT * FROM cart INNER JOIN product ON cart.productID=product.productID WHERE customerID=1;";
+            // boolean results = stmt.execute(sqlStr);
+
+
                 out.println("<div class='container'>");
-                // out.println("<form action='action_page.php'>");
+                out.println("<form method='post'>");
                 out.println("<label for='fname'>First Name</label>");
-                out.println("<input type='text' id='fname' name='firstname' placeholder='Your name..'>");
+                out.println("<input type='text' id='fname' name='fname' placeholder='Your name..'>");
                 out.println("<label for='lname'>Last Name</label>");
-                out.println("<input type='text' id='lname' name='lastname' placeholder='Your last name..'>");
+                out.println("<input type='text' id='lname' name='lname' placeholder='Your last name..'>");
                 out.println("<label for='region'>Region</label>");
-                out.println("<select id='region' name='region'>");
-                out.println("<option value='West'>West</option>");
-                out.println("<option value='East'>East</option>");
-                out.println("<option value='North'>North</option>");
-                out.println("<option value='South'>South</option>");
-                out.println("</select>");
+                out.println("<input type='text' id='region' name='region' placeholder='Where you are...'>");
+                // out.println("<label for='region'>Region</label>");
+                // out.println("<select id='region' name='region'>");
+                // out.println("<option value='West'>West</option>");
+                // out.println("<option value='East'>East</option>");
+                // out.println("<option value='North'>North</option>");
+                // out.println("<option value='South'>South</option>");
+                // out.println("</select>");
                 out.println("<label for='subject'>Subject</label>");
                 out.println("<textarea id='subject' name='subject' placeholder='Write something..' style='height:200px'></textarea>");
-                out.println("<form method='get' >");
                 out.println("<button type='submit' class='btn btn-dark' style='width: 100%;' name='contactID'> Submit </button>");
                 out.println("<form />");
                 out.println("</div>");
+
+
                 if (request.getParameter("contactID") != null) {
+                    String id = request.getParameter("contactID"); 
+                    String fname = request.getParameter("fname");
+                    String lname = request.getParameter("lname");
+                    String region = request.getParameter("region");
+                    String subject = request.getParameter("subject");
+                    out.println("sqlStatement");
+                    out.println(fname);
+                    out.println(lname);
+                    out.println(region);
+                    out.println(subject);
+                    String sqlStr = "insert into contactForm (fname, lname, reg, subj) values("+ " ' " +fname + " ' " + " , " +" ' " +  lname +" ' " + ", " + " ' " + region + " ' " + ", " + " ' " + subject + " ' "+ ");";  
+                    // String sqlStr = "insert into contactForm (fname, lname, reg, subj) values('a' , 'b' , 'c' , 'd');";  
+
+                    out.println("test");
+                    int count = stmt.executeUpdate(sqlStr); 
+
+
                     out.println("<script type=\"text/javascript\">");
                     out.println("alert('Thank you for your enquiry! We will get back to you soon!');");
                     out.println("</script>");
                 }
+
+
 
         } catch (Exception ex) {
             out.println("<p>Error: " + ex.getMessage() + "</p>");
